@@ -1,31 +1,24 @@
-﻿using JogoXadrez.tabuleiro;
-using System;
+﻿using System;
+using JogoXadrez.tabuleiro;
 using JogoXadrez.xadrez;
 
+namespace JogoXadrez {
+    class Program {
+        static void Main(string[] args) {
 
-
-namespace JogoXadrez
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-            try
-            {
+            try {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!partida.terminada)
-                {
-                    try
-                    {
+                while (!partida.terminada) {
+
+                    try {
                         Console.Clear();
                         Tela.imprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
-                        partida.validaPosicaoDeOrigem(origem);
+                        partida.validarPosicaoDeOrigem(origem);
 
                         bool[,] posicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
 
@@ -38,18 +31,15 @@ namespace JogoXadrez
                         partida.validarPosicaoDeDestino(origem, destino);
 
                         partida.realizaJogada(origem, destino);
-
                     }
-                    catch (TabuleiroException e)
-                    {
+                    catch (TabuleiroException e) {
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
-
                 }
+
             }
-            catch (TabuleiroException e)
-            {
+            catch (TabuleiroException e) {
                 Console.WriteLine(e.Message);
             }
 

@@ -1,7 +1,12 @@
-﻿namespace JogoXadrez.tabuleiro
-{
-    enum Cor
-    {
-        Preto, Branco, Amarela, Vermelha, Verde, Laranja
+﻿namespace JogoXadrez.tabuleiro {
+    enum Cor {
+
+        Branca,
+        Preta,
+        Amarela,
+        Azul,
+        Vermelha,
+        Verde,
+        Laranja
     }
 }
